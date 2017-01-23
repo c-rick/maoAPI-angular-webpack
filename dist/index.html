@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='mapApp'>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<title>导航</title>
+<!-- 	<link rel="stylesheet" href="./style.css">  -->
+  <!--<link rel="stylesheet" href="./iconfont.css">-->
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_qk0hqxe4zllq5mi.css">
+  <!-- <link rel="stylesheet" href="./fancybox.css">
+  <script src="./angular.min.js"></script>
+  <script src="./ctrl.js"></script>
+  <script src="./directive.js"></script> -->
+  
+<link href="css/index.css?bf5e14ee1608369b51b5" rel="stylesheet"><script type="text/javascript" src="js/index.js?bf5e14ee1608369b51b5"></script></head>
+<body >
+  <a id='endroute' class=' gotoX iconfont icon-route'></a>
+  <a id="gotoZJ" class="iconfont icon-zuji" href='../../webapp/myliuyan.html'></a>
+   <a id="local" class="iconfont icon-dingwei1" href='javascript:startLocal();'></a>
+	<div id='container' style="width:100%; height:100%"></div>
+	<div id='content'>
+    
+    <div class="contop2"  >
+         <a  class='gotoBtn gotoB iconfont icon-left'></a>
+         
+         <a class='gotoBtn gotoS iconfont icon-fenxiang'></a>
+         <img class="conImg" src="./img/test.jpg" alt="">
+         <a class="gotoBtn moreimg" ><i class="iconfont icon-moreimg"></i></a>
+     </div>
+     <div class="contop1">
+     
+      <div class="touchtarget">
+        <i class="iconfont icon-top touchtop"></i>
+         <div class="content-left">
+             <!-- <p >广州塔广州塔广州塔</p>
+             <p>绿岛山庄景区内，门票100元起</p>
+             <p><i></i>300m<a href="">到这里去</a></p> -->
+         </div>
+         <div class="content-right">
+         <a href="javascript:alert('跳转到评论');">
+             <span>4.5分</span>
+             <span>245条评论 <i >></i></span>
+         </a>    
+         </div>
+         </div>
+         <div class='content-btn'>
+             <a id='startroute' onclick="tranmove('startroute','endroute');"><i class="iconfont icon-route"></i>加入行程</a>
+             <a ><i class="iconfont icon-dingwei"></i>详细导览</a>
+             <a href='javascript:alert("分享");'><i class="iconfont icon-fenxiang"></i>分享</a>
+         </div>
+     </div>
+     <div ng-controller="detilCtrl" class="detail" style="height:0;overflow: scroll;background:#eee;">
+        <div class="change-data jalendar" id="chosedate">
+          <section id='datain'>
+            <p>入住</p>
+            <input type="text" id="inputA" value='选择入住' readonly>
+          </section>
+          <section id='datasum'>
+            <p>1晚</p>
+          </section>
+          <section id='dataout'>
+            <p>离开</p>
+            <input type="text" id="inputB" value='选择离开' readonly>
+          </section>
+        </div>
+        <!-- 预订房组件 -->
+           <houselist house-date='housedata'></houselist>
+          <!-- 酒店设备组件 -->
+         <equipment equipment-data='equipments'></equipment>
+         <!-- 酒店组件 -->
+         <policy policy-data='policys' policy-tel='tel'></policy>
+         <!-- 评论组件 -->
+         <comment comment-data='comments'></comment>
+         <!-- 图片层组件 -->
+         <fancybox fancybox-data='fancyboxs'></fancybox>
+        
+     </div>   
+    </div>
+   
+    
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=8ebd5f348e172f44cbb5dda7844aabb6"></script>
+<!-- <script src="./jquery.js"></script>
+<script src="./jquery.fancybox-1.3.1.pack.js"></script> -->
+<script type="text/javascript">
+    
+    var map, geolocation,auto,marker,driving,imageLayer,markerClick,end;
+
+    //叠加图层
+    imageLayer = new AMap.ImageLayer({
+        url: 'http://amappc.cn-hangzhou.oss-pub.aliyun-inc.com/lbs/static/img/dongwuyuan.jpg',
+        bounds: new AMap.Bounds(
+                [116.8628528,23.6955701],
+                [116.8704528,23.7025701]
+        ),
+        zooms: [6, 50]
+        });
+    //加载地图，调用浏览器定位服务
+    map = new AMap.Map('container', {
+        resizeEnable: true,
+         zoom: 16,
+        layers: [
+            new AMap.TileLayer(),
+            imageLayer
+        ],
+        mapStyle:"light",
+        center: [116.8668528,23.6995701]    
+    });
+    
+    //驾车导航
+    map.plugin('AMap.Driving',function(){
+    	driving = new AMap.Driving({
+        map: map
+    	});
+    
+    })
+
+    //点击点弹出导航按钮
+    map.plugin('AMap.AdvancedInfoWindow',function(){
+    	markerClick=function(e) {
+            var eInfo=e.target.info
+            var teplate='<p >'+eInfo.title+'</p><p>'+eInfo.content+'</p><i class="iconfont icon-daohang" style="font-size:1.2rem;"></i>300m<a id="gohere" style="margin-left:10px;"  data-poi='+eInfo.ln+","+eInfo.la+'>到这里去</a></p>';
+            $('.content-left').html(teplate);
+            $("#content").show();
+	     	var infoWindow=new AMap.InfoWindow({
+                isCustom: true,
+		        content: createInfoWindow(eInfo.img,eInfo.link),
+		        offset: new AMap.Pixel(0, -50)
+	    	});
+
+	        infoWindow.open(map, e.target.getPosition());
+	        setTimeout(function(){
+            
+           var start=window.sessionStorage.getItem('start')!=null?window.sessionStorage.getItem('start').split(','):null;
+	        	 end=$('#gohere').attr('data-poi').split(',');
+               
+                map.setCenter(end);
+	        	$('#gohere').click(function(){
+	        		// 根据起终点经纬度规划驾车导航路线
+                   // console.log(end,start)
+	        		$(".amap-info").hide();
+              $('#content').hide();
+              if(start===null){
+                alert("请先点击定位按钮");
+                return ;
+               }
+    				  driving.search(new AMap.LngLat(start[0],start[1]), new AMap.LngLat(end[0],end[1])); 
+	        	})
+            
+	        },20)
+	    }
+     
+      //拿数据
+      $.get("./data/date.xml",function(data){
+              //console.log("2")
+              var data=$(data).find('latitude');
+              $.each(data,function(i,e){
+                  var el=$(e);
+                      var content={
+                      "title":el.find('name').text(),
+                      "content":el.find('intro').text(),
+                      "address":el.find('intro').text(),
+                      "phone":el.find('phone').text(),
+                      "img":el.find('img').text(),
+                      "link":el.find('link').text(),
+                      "ln":el.find('lng').text(),
+                      "la":el.find('lat').text()
+                          }
+                  addmarker([el.find('lng').text(),el.find('lat').text()],el.find('icon').text(),content)
+              })
+        
+          })
+    })
+  //开始定位
+     function startLocal(){
+       if (window.navigator.geolocation) { 
+             var options = { 
+                 enableHighAccuracy: true, 
+             }; 
+             window.navigator.geolocation.getCurrentPosition(onComplete, onError, options); 
+         } else { 
+             alert("浏览器不支持html5来获取地理位置信息"); 
+         } 
+     }
+    
+    //解析定位结果
+    function onComplete(position) {
+    	var lng = position.coords.longitude; 
+      var lat = position.coords.latitude; 
+      addmarker([lng,lat],'./img/local.png')
+      map.setCenter([lng,lat]);
+      setTimeout('map.setCenter([116.8668528,23.6995701]);',5000)
+      	
+    	window.sessionStorage.setItem('start',[lng,lat])//保存当前地址
+        //console.log(ln,la);
+    }
+    //解析定位错误信息
+    function onError(data) {
+        var str = '定位失败,';
+            str += '错误信息：'
+            switch(data.info) {
+                case 'PERMISSION_DENIED':
+                    str += '浏览器阻止了定位操作';
+                    break;
+                case 'POSITION_UNAVAILBLE':
+                    str += '无法获得当前位置';
+                    break;
+                case 'TIMEOUT':
+                    str += '定位超时';
+                    break;
+                default:
+                    str += '未知错误';
+                    break;
+            }
+            console.log(str)
+            setTimeout('map.setCenter([116.8668528,23.6995701]);',1000)
+    }
+    //添加自定义点地址
+    function addmarker(poi,icon,content){
+    	marker=new AMap.Marker({
+        map: map,
+		position: poi,
+        icon: new AMap.Icon({            
+            size: new AMap.Size(27, 36),  //图标大小
+            image: icon,
+            imageOffset: new AMap.Pixel(0, 0)
+        })        
+    	});
+      if(content){
+        marker.info=content;
+        marker.on('click', markerClick);
+      }  	
+    }
+    //构建自定义的信息窗体
+    function createInfoWindow(img,link){
+        var info = document.createElement("div");
+        var alink=document.createElement('a');
+        var aimg=document.createElement("img");
+        info.className = "info";
+        aimg.src=img;
+        alink.href=link;
+        alink.innerHTML="VR";
+        info.appendChild(aimg);
+        info.appendChild(alink);
+         return info;
+    }
+     //滑动函数
+  function touchMove(target,childtar){
+      var  Obj=document.querySelector(target),Cobj=$(childtar),Wheight=window.innerHeight,pageyY=0,moveY=0,conTH=0,Owidth,conT=$('.contop2'),btn=$('.gotoBtn'),Owidth;
+      Obj.addEventListener('touchstart',function(event)
+    {
+        var touch = event.targetTouches[0];
+        pageY=touch.clientY;
+        Owidth=parseInt($(".contop1").css('height'));
+    });
+      Obj.addEventListener('touchmove', function(event){
+            event.preventDefault();
+            var touch = event.targetTouches[0];
+            moveY=parseInt(Cobj.css("height"));
+             if (touch.clientY<pageY&&parseInt(Cobj.css("height"))<Wheight-Owidth-120)
+            {
+                // 偏移量
+                //pageY=touch.clientY;
+                $('#gotoZJ,#local').addClass('moveLeft');
+                Cobj.css("height",Wheight-Owidth-touch.clientY)
+                if(touch.clientY<180){
+                    conTH=conTH>1?1:conTH+0.1;                    
+                    conT.css('height',120);
+                    
+                    $('.gotoX').addClass('moveLeft');
+                }
+            }else if(touch.clientY>pageY&&parseInt(Cobj.css("height"))>0){
+                //pageY=touch.clientY;
+               Cobj.css("height",Wheight-Owidth-touch.clientY)
+                if(touch.clientY>=120&&conTH>0){
+                    conTH-=0.1;
+                   
+                    
+                }
+            }
+        });
+    Obj.addEventListener('touchend', function(event){
+           var touch = event.changedTouches[0];
+            if(touch.clientY<180){
+                    conT.css('height',120);
+                    $('.touchtop').hide();
+                    Cobj.css("height",Wheight-Owidth-120);
+                    btn.show(200);
+                    $('.content-btn a:nth-child(3)').html(
+                      '<i class="iconfont icon-VR"></i>VR全景').attr('href','javascript:alert("全景");');
+                }else{
+                      if(touch.clientY<pageY){
+                          Cobj.css("height",Wheight-Owidth-180);
+                        }else {
+                          Cobj.css("height",0);
+                        }
+
+                    conT.css('height',0);
+                    $('.touchtop').show();                      
+                    $('.gotoX').removeClass('moveLeft');   
+                    btn.hide(200);
+                }
+              if(parseInt(Cobj.css('height'))==0){
+                     $('#gotoZJ,#local').removeClass('moveLeft');
+                      $('.content-btn a:nth-child(3)').html(
+                      '<i class="iconfont icon-fenxiang"></i>分享').attr('href','javascript:alert("分享");')
+                       console.log(parseInt(Cobj.css('height')))
+                       $('.gotoX').removeClass('moveLeft'); 
+                }
+        })
+        // 返回
+        $('.gotoB').click(function(){
+          Cobj.css("height",0); 
+          conT.css('height',0);
+           $('.touchtop').show();
+           btn.hide(200);
+           $('#gotoZJ,#local,.gotoX').removeClass('moveLeft');
+        })
+        $('.touchtop').on('click',function(){
+              conT.css('height',120);
+              $('.touchtop').hide();
+              Cobj.css("height",Wheight-Owidth-120);
+              btn.show(200);
+              $('#gotoZJ,#local').addClass('moveLeft');
+              $('.gotoX').addClass('moveLeft'); 
+              $('.content-btn a:nth-child(3)').html(
+                '<i class="iconfont icon-VR"></i>VR全景').attr('href','javascript:alert("全景");');
+        })
+        //更多图片
+        $('.moreimg').on('click',function(){
+          $('a[rel=group]').trigger('click')
+        })
+      }
+      touchMove(".touchtarget",".detail")
+
+      // 加入行程
+      function tranmove(start,end){
+        event.preventDefault();
+        var els=document.getElementById(start).getBoundingClientRect(),ele=document.getElementById(end).getBoundingClientRect();
+        var movestart=document.createElement('i')
+        movestart.id="step";
+        movestart.className="iconfont";
+        movestart.className+=" icon-route";
+        movestart.style.cssText="position:fixed;top:"+parseInt(els.top+els.height/2-18)+"px;left:"+parseInt(els.left+els.width/2-10)+"px;z-index:99999;background:rgba(12,12,12,.5);border-radius:50%;color:#fff;padding:0.5rem;border:1px solid #fff;transition:all 1s;-webkit-animation:anix 1s forwards;";
+        document.body.appendChild(movestart);
+        
+        var step=document.getElementById("step"),
+            halfT=els.top/2,
+            halfL=ele.left/2;
+        var style = document.createElement('style');
+        style.type = 'text/css';
+        style.innerHTML = '@-webkit-keyframes anix {0% {left: '+parseInt(els.left+els.width/2-10)+'px;top:'+parseInt(els.top+els.height/2-18)+'px;}50%{left:'+parseInt(ele.left-els.halfL)+'px;top:'+parseInt(els.top-halfT)+'px;}100% {left: '+parseInt(ele.left+10)+'px;top: '+ele.top+'px;font-size:0;}}';
+        document.getElementsByTagName('head')[0].appendChild(style);
+        step.addEventListener("webkitAnimationEnd", function(){ //动画结束时事件 
+          this.parentNode.removeChild(this);
+            }) 
+      }
+      // 日期
+      (function(){
+         var iA=$('#inputA'),
+             iB=$('#inputB');
+        //     todayY=new Date().getFullYear(),
+        //     todayM=(new Date().getMonth() + 1) 
+        //     todayD=new Date().getDate(),
+        //     today=new Date(todayY,todayM,todayD);
+        var nowTemp = new Date();
+        var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+        $('#chosedate').on('click',function(){
+            $('.jalendar .jalendar-container').show();
+        })
+        $('#chosedate').jalendar({
+              color: '#37C4A7',
+              type: 'range',
+              lang: 'CN', 
+              done: function() {
+                  iA.val($('#chosedate input.data1').val())
+                  iB.val($('#chosedate input.data2').val())
+                  $('.jalendar .jalendar-container').hide();
+              }})
+        // var checkin = $('#inputA').fdatepicker({
+        //     onRender: function (date) {
+        //       return date.valueOf() < now.valueOf() ? 'disabled' : '';
+        //     }
+        //   }).on('changeDate', function (ev) {
+        //     if (ev.date.valueOf() > checkout.date.valueOf()) {
+        //       var newDate = new Date(ev.date)
+        //       newDate.setDate(newDate.getDate() + 1);
+        //       checkout.update(newDate);
+        //     }
+        //     checkin.hide();
+        //     $('#inputB')[0].focus();
+        //   }).data('datepicker');
+        //   var checkout = $('#inputB').fdatepicker({
+        //     onRender: function (date) {
+        //       return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+        //     }
+        //   }).on('changeDate', function (ev) {
+        //     checkout.hide();
+        //   }).data('datepicker');     
+          //计算相差天数
+        function DayTime(oldday,newday,today,Obj)
+          {
+              var time=newday.getTime()-oldday.getTime();
+                  if(time<0){
+                    alert("入住日期不能晚于离开日期");
+                    InitDate(today,Obj);
+                    iAV=today;
+                    return ;
+                  }
+              var day=parseInt(time/(1000*60*60*24));
+                  day==0?day=1:day=day;
+                  $('#datasum p').text(day+'晚')
+          }
+      }())
+      
+      //转换周
+      function TurnWeek(y,m,d){
+        arguments.length==1?date=arguments[0]:date=new Date(y,m,d).getDay();
+        switch(date){
+                    case 1:return '周一';break;
+                    case 2:return '周二';break;
+                    case 3:return '周三';break;
+                    case 4:return '周四';break;
+                    case 5:return '周五';break;
+                    case 6:return '周六';break;
+                    case 0:return '周日';break;
+                }
+
+      }
+	</script>
+</body>
+</html>
+
+
+
+
+
+<!-- //工具条
+    // map.plugin(["AMap.ToolBar"], function() {
+    //     map.addControl(new AMap.ToolBar({
+    //        position:"LT" 
+    //     }));
+    // });
+    // //初始化检索列表
+    // map.plugin('AMap.Autocomplete',function(){
+    //  //输入提示
+     //   auto = new AMap.Autocomplete({
+     //      input:"tipinput"
+     //  }); 
+    // })
+    // //初始化关键词搜索
+    // map.plugin('AMap.PlaceSearch',function(){
+    //   placeSearch = new AMap.PlaceSearch({
+     //     map: map
+     //  }); //构造地点查询类
+    //  AMap.event.addListener(auto, "select", function(e){
+     //   console.log(e);
+     //   window.sessionStorage.setItem('end',[e.poi.location.lng,e.poi.location.lat]);
+     //   map.setCenter([e.poi.location.lng,e.poi.location.lat]);
+
+     //   marker!=undefined?marker.setMap(null):marker=marker;
+     //   addmarker([e.poi.location.lng,e.poi.location.lat],"search2",e.poi);
+     //  });//注册监听，当选中某条记录时会触发
+    // })
+    // //定位当前位置
+    // map.plugin('AMap.Geolocation', function() {
+    //     geolocation = new AMap.Geolocation({
+    //         enableHighAccuracy: true,//是否使用高精度定位，默认:true
+    //         timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+    //         buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+    //         zoomToAccuracy: true,      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+    //         showMarker: true,   //初设定位地点是否显示
+    //         showCircle: true,    //定位成功后用圆圈表示定位精度范围
+    //         buttonPosition: 'RT',
+    //         noIpLocate:0,
+    //         noGeoLocation:2,
+    //         buttonDom:"<div id='self' class='amap-geo'></div>",   //自定义定位按钮的内容
+    //         markerOptions:{
+    //           icon: new AMap.Icon({  //复杂图标
+    //           size: new AMap.Size(27, 27),//图标大小
+    //           image: "./img/self2.png", //大图地址
+    //           imageOffset: new AMap.Pixel(0, 0)//相对于大图的取图位置
+    //         })
+    //         }
+            
+    //     });
+    //      map.addControl(geolocation);
+
+    //      geolocation.getCurrentPosition();//定位到当前位置
+    //     AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位R信息
+    //     AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+    // });
+  -->

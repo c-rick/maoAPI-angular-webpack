@@ -1,0 +1,13 @@
+app=angular.module('mapApp',[]);
+app.controller('detilCtrl',['$http','$scope',function($http,$scope){
+	$http.get('./data/houseList.json').success(function(data){
+		$scope.housedata=data.house;//房型
+		$scope.equipments=data.equipments;//酒店设备
+		$scope.policys=data.policys;//酒店政策
+		$scope.tel=data.tel;//电话
+		$scope.comments=data.comments;//评论
+		$scope.fancyboxs=data.fancyboxs;//更多图片
+	}).error(function(error){
+		console.log(error)
+	})
+}])

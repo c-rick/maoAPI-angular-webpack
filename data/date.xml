@@ -1,0 +1,752 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data>
+<mapcode>czldly</mapcode>
+<mapurl>http://91zmt.com:8888/v2/czld_ldsz/{z}/{x}/{y}.png</mapurl>
+<initlattude>
+<lat>23.6994671</lat>
+<lng>116.8675983</lng>
+</initlattude>
+<southwest>
+    <lat>23.6945</lat>
+    <lng>116.86</lng>
+</southwest>
+<northeast>   
+    <lat>23.7060</lat>
+    <lng>116.8774</lng>
+</northeast>
+<zoom>
+    <max>19</max>
+    <min>16</min>
+    <def>17</def>
+</zoom>
+
+<latitude>
+<id>0</id>
+<name>行政大楼</name>
+<lng>116.8635523</lng>
+<lat>23.6992034</lat>
+<intro>加强行政大楼的管理工作，保障游客的出行安全</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jd.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jd</class>
+</latitude>
+
+<latitude>
+<id>1</id>
+<name>绿岛大门</name>
+<lng>116.867082417057986</lng>
+<lat>23.697637609869826</lat>
+<intro>走向绿岛之旅的正确方式</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jd.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jd</class>
+</latitude>
+
+<!-- <latitude>
+<id>2</id>
+<name>5D电影院</name>
+<lng>116.868820596369844</lng>
+<lat>23.697869068696452</lat>
+<intro>超现实的“感官盛宴”</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jd.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>biaoyan</class>
+</latitude>
+
+<latitude>
+<id>3</id>
+<name>手信店</name>
+<lng>116.86744734640591</lng>
+<lat>23.697799835991567</lat>
+<intro>送亲朋好友的必经之地</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/liwu.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>lw</class>
+</latitude>
+
+<latitude>
+<id>4</id>
+<name>长寿廊</name>
+<lng>116.867551516201175</lng>
+<lat>23.700058936294077</lat>
+<intro></intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jd.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jd</class>
+<pic>img/pic/changshoulang/1.jpg</pic>
+</latitude>
+
+<latitude>
+<id>5</id>
+<name>滑草拓能区</name>
+<lng>116.867917034782252</lng>
+<lat>23.698713818329999</lat>
+<intro>惊险刺激，适合不同年龄层次、不同喜好的游客</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jd.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jd</class>
+<pic>img/pic/huacao/1.jpg</pic>
+</latitude>
+
+<latitude>
+<id>6</id>
+<name>知青亭</name>
+<lng>116.86794579787265</lng>
+<lat>23.698504693961379</lat>
+<intro>载入千秋史，留下永世情</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jd.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jd</class>
+</latitude>
+
+<latitude>
+<id>7</id>
+<name>摩天轮游乐碰碰车</name>
+<lng>116.86878032106074</lng>
+<lat>23.697951020772486</lat>
+<intro>让我们一起众享欢乐童年时光</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jd.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jd</class>
+<pic>img/pic/motianlun/1.jpg</pic>
+</latitude>
+
+<latitude>
+<id>8</id>
+<name>激流勇进</name>
+<lng>116.868747221564533</lng>
+<lat>23.698426373928967</lat>
+<intro>释放激情，共铸欢乐回忆</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jd.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jd</class>
+</latitude>
+
+<latitude>
+<id>9</id>
+<name>茶园茶座</name>
+<lng>116.869203606583156</lng>
+<lat>23.698255164794951</lat>
+<intro>茶色茶香，感受潮汕功夫茶文化</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+    <icon>img/chanting.png</icon>
+    <link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+    <class>cy</class>
+<pic>img/pic/chazuo/1.jpg</pic>
+<pic>img/pic/chazuo/2.jpg</pic>
+</latitude>
+
+<latitude>
+<id>10</id>
+<name>茶园小筑</name>
+<lng>116.86888265737457</lng>
+<lat>23.698318316201185</lat>
+<intro>甘泉品茗，尽享茶色芳香</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+    <icon>img/chanting.png</icon>
+    <link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+    <class>cy</class>
+<pic>img/pic/xiaozhu/1.jpg</pic>
+</latitude>
+
+<latitude>
+<id>11</id>
+<name>鲨鱼岛</name>
+<lng>116.868711846778709</lng>
+<lat>23.697754640558578</lat>
+<intro>人鱼同乐，蔚为奇观</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jd.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jd</class>
+</latitude>
+
+<latitude>
+<id>12</id>
+<name>烧烤区</name>
+<lng>116.8690033</lng>
+<lat>23.6976954</lat>
+<intro>趣味烧烤，美食齐共享</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+    <icon>img/chanting.png</icon>
+    <link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+    <class>cy</class>
+<pic>img/pic/shaokaoqu/1.jpg</pic>
+</latitude>
+
+<latitude>
+<id>14</id>
+<name>农乐园</name>
+<lng>116.87006089927398</lng>
+<lat>23.697897813650304</lat>
+<intro>农家野趣，重现农俗文化</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jd.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jd</class>
+<pic>img/pic/nongleyuan/1.jpg</pic>
+</latitude> -->
+
+<latitude>
+<id>15</id>
+<name>驿站茶座</name>
+<lng>116.868887651396449</lng>
+<lat>23.697320592085802</lat>
+<intro>茶色茶香，感受潮汕功夫茶文化</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+    <icon>img/chanting.png</icon>
+    <link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+    <class>cy</class>
+<pic>img/pic/chazuo/1.jpg</pic>
+<pic>img/pic/chazuo/2.jpg</pic>
+</latitude>
+
+<latitude>
+<id>16</id>
+<name>窑鸡作坊</name>
+<lng>116.868932745549117</lng>
+<lat>23.696776165046749</lat>
+<intro>老牌作坊，地道窑鸡</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+    <icon>img/chanting.png</icon>
+    <link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+    <class>cy</class>
+<pic>img/pic/yaoji/1.jpg</pic>
+</latitude>
+
+<latitude>
+<id>17</id>
+<name>农家作坊</name>
+<lng>116.868823575884619</lng>
+<lat>23.696926265288759</lat>
+<intro>农俗体验，受益匪浅</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/liwu.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>lw</class>
+<pic>img/pic/nongju/1.jpg</pic>
+<pic>img/pic/nongju/2.jpg</pic>
+<pic>img/pic/nongju/3.jpg</pic>
+<pic>img/pic/nongju/4.jpg</pic>
+<pic>img/pic/nongju/5.jpg</pic>
+<pic>img/pic/nongju/6.jpg</pic>
+<pic>img/pic/nongju/7.jpg</pic>
+</latitude>
+
+<!--<latitude>
+<id>18</id>
+<name>临湖别墅</name>
+<lng>116.8667879</lng>
+<lat>23.6998518</lat>
+<intro>湖景别墅，精致舒适</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jiudian.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jdian</class>
+<pic>img/pic/linhubiesu/1.jpg</pic>
+<pic>img/pic/linhubiesu/2.jpg</pic>
+<pic>img/pic/linhubiesu/3.jpg</pic>
+<pic>img/pic/linhubiesu/4.jpg</pic>
+<pic>img/pic/linhubiesu/5.jpg</pic>
+</latitude>-->
+
+<latitude>
+<id>19</id>
+<name>凌涛台</name>
+<lng>116.866742143482256</lng>
+<lat>23.699472082457987</lat>
+<intro>典雅，感受人与自然的生态和谐的商务之旅</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<pic>img/pic/lingbotai/1.jpg</pic>
+<pic>img/pic/lingbotai/2.jpg</pic>
+    <icon>img/jd.png</icon>
+    <link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+    <class>jd</class>
+</latitude>
+
+<latitude>
+<id>20</id>
+<name>会议厅</name>
+<lng>116.8668528</lng>
+<lat>23.6995701</lat>
+<intro>寓商务于度假，寓度假于商务，享受创造财富的商务之旅</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+    <icon>img/fuwutai.png</icon>
+    <link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+    <class>sm</class>
+<pic>img/pic/huiyishi/1.jpg</pic>
+<pic>img/pic/huiyishi/2.jpg</pic>
+<pic>img/pic/huiyishi/3.jpg</pic>
+<pic>img/pic/huiyishi/4.jpg</pic>
+<pic>img/pic/huiyishi/5.jpg</pic>
+<pic>img/pic/huiyishi/6.jpg</pic>
+</latitude>
+
+<!-- <latitude>
+<id>21</id>
+<name>花园别墅</name>
+<lng>116.866162222532552</lng>
+<lat>23.699178549571592</lat>
+<intro>花草芬芳，给你舒适环境</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jiudian.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jdian</class>
+</latitude>
+
+<latitude>
+<id>22</id>
+<name>绿泉酒店</name>
+<lng>116.865382768458758</lng>
+<lat>23.699395148163024</lat>
+<intro>推窗远眺，是商务和成功人士追求高品位休闲度假的理想场所</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jiudian.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jdian</class>
+<pic>img/pic/lvdaojiudian/1.jpg</pic>
+<pic>img/pic/lvdaojiudian/2.jpg</pic>
+<pic>img/pic/lvdaojiudian/3.jpg</pic>
+<pic>img/pic/lvdaojiudian/4.jpg</pic>
+<pic>img/pic/lvdaojiudian/5.jpg</pic>
+<pic>img/pic/lvdaojiudian/6.jpg</pic>
+</latitude>
+
+<latitude>
+<id>23</id>
+<name>古榕树</name>
+<lng>116.8649302</lng>
+<lat>23.6998014</lat>
+<intro>古树青葱，与绿岛相映成趣</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jd.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jd</class>
+</latitude> -->
+
+<!--<latitude>
+<id>24</id>
+<name>宴会厅</name>
+<lng>116.8650504</lng>
+<lat>23.7001343</lat>
+<intro>草木芳香，品尝绿色自产无公害的健康食品</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/chanting.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>cy</class>
+<pic>img/pic/yanhuiting/1.jpg</pic>
+<pic>img/pic/yanhuiting/2.jpg</pic>
+</latitude>-->
+
+<latitude>
+<id>25</id>
+<name>茶叶加工场</name>
+<lng>116.8644399</lng>
+<lat>23.6990323</lat>
+<intro>规模生产，确保茶叶的有机品质</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jd.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jd</class>
+</latitude>
+
+<!-- <latitude>
+<id>26</id>
+<name>铂金度假酒店</name>
+<lng>116.865917</lng>
+<lat>23.7010042</lat>
+<intro>格调不失典雅，</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+    <icon>img/jiudian.png</icon>
+    <link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+    <class>jdian</class>
+</latitude>
+
+<latitude>
+<id>27</id>
+<name>百香廊</name>
+<lng>116.867181777225454</lng>
+<lat>23.701824154934911</lat>
+<intro>环境清幽，犹如走进世外桃源</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/liwu.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>lw</class>
+</latitude>
+
+<latitude>
+<id>28</id>
+<name>卡丁车</name>
+<lng>116.868868167486397</lng>
+<lat>23.701265261266272</lat>
+<intro>速度与激情，众享欢乐时光</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jd.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jd</class>
+<pic>img/pic/kadingche/1.jpg</pic>
+</latitude>
+
+<latitude>
+<id>29</id>
+<name>滑翔飞翼</name>
+<lng>116.868662898901178</lng>
+<lat>23.700544990502962</lat>
+<intro>高逼格必玩</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+    <icon>img/jd.png</icon>
+    <link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+    <class>jd</class>
+<pic>img/pic/huaxiangfeiyi/1.jpg</pic>
+</latitude> -->
+
+<!-- <latitude>
+<id>30</id>
+<name>滑轮飞椅</name>
+<lng>116.868642210111844</lng>
+<lat>23.700685409688319</lat>
+<intro>高逼格必玩</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+    <icon>img/jd.png</icon>
+    <link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+    <class>jd</class>
+</latitude>
+
+<latitude>
+<id>31</id>
+<name>摇头飞椅</name>
+<lng>116.869844560913023</lng>
+<lat>23.699853257243781</lat>
+<intro>高逼格必玩</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jd.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jd</class>
+<pic>img/pic/yaotoufeiyi/1.jpg</pic>
+</latitude> -->
+
+<!-- <latitude>
+<id>34</id>
+<name>太空漫步</name>
+<lng>116.869566559441438</lng>
+<lat>23.700433611210659</lat>
+<intro>高逼格必玩</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jd.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jd</class>
+<pic>img/pic/taikongmanbu/1.jpg</pic>
+</latitude>
+
+<latitude>
+<id>35</id>
+<name>脚踏船</name>
+<lng>116.8687726</lng>
+<lat>23.6996338</lat>
+<intro>绿岛旅行，必玩项目</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jd.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jd</class>
+<pic>img/pic/shuishang/1.jpg</pic>
+</latitude>
+
+<latitude>
+<id>36</id>
+<name>激光船璇</name>
+<lng>116.8690995</lng>
+<lat>23.6999075</lat>
+<intro>绿岛旅行，必玩项目</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jd.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jd</class>
+<pic>img/pic/shuishang/2.jpg</pic>
+</latitude> -->
+
+<!--<latitude>
+<id>37</id>
+<name>转轮飞机</name>
+<lng>116.869375</lng>
+<lat>23.6993473</lat>
+<intro>高逼格必玩</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jd.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jd</class>
+</latitude>-->
+
+<latitude>
+<id>38</id>
+<name>海盗船</name>
+<lng>116.868621255772197</lng>
+<lat>23.698313458211821</lat>
+<intro>绿岛旅行，必玩项目</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jd.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jd</class>
+<pic>img/pic/haidao/1.jpg</pic>
+</latitude>
+
+<latitude>
+<id>39</id>
+<name>魔幻屋</name>
+<lng>116.868480702662112</lng>
+<lat>23.698380589273363</lat>
+<intro>绿岛旅行，必玩项目</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jd.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jd</class>
+<pic>img/pic/mohuanwu/1.jpg</pic>
+</latitude>
+
+<!-- <latitude>
+<id>40</id>
+<name>榕树牛</name>
+<lng>116.865932342540276</lng>
+<lat>23.699990576769661</lat>
+<intro>走在乡间的小路上，暮归的老牛是我同伴</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jd.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jd</class>
+</latitude>
+
+<latitude>
+<id>42</id>
+<name>荷花包厢</name>
+<lng>116.865760210022032</lng>
+<lat>23.699737338752755</lat>
+<intro>清荷韵赏荷美食两不误</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+    <icon>img/chanting.png</icon>
+    <link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+    <class>cy</class>
+</latitude>
+
+<latitude>
+<id>43</id>
+<name>临湖别墅</name>
+<lng>116.866749966629598</lng>
+<lat>23.699131364915953</lat>
+<intro>湖景别墅，精致舒适</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/jiudian.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jdian</class>
+<pic>img/pic/linhubiesu/1.jpg</pic>
+<pic>img/pic/linhubiesu/2.jpg</pic>
+<pic>img/pic/linhubiesu/3.jpg</pic>
+<pic>img/pic/linhubiesu/4.jpg</pic>
+<pic>img/pic/linhubiesu/5.jpg</pic>
+</latitude>
+
+<latitude>
+<id>44</id>
+<name>售票服务</name>
+<lng>116.8668141</lng>
+<lat>23.6976615</lat>
+<intro>绿岛之旅的正确“打开方式”</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/fuwutai.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>sm</class>
+</latitude>
+
+<latitude>
+<id>45</id>
+<name>停车场</name>
+<lng>116.8654576</lng>
+<lat>23.6986031</lat>
+<intro>停车不易,优雅地停车更不易</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/tingche.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jt</class>
+</latitude> -->
+
+<latitude>
+<id>46</id>
+<name>洗手间</name>
+<lng>116.867820906946164</lng>
+<lat>23.697385720949704</lat>
+<intro>我可以帮你解决“急”事</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/wc.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>wc</class>
+</latitude>
+
+<!--<latitude>
+<id>47</id>
+<name>停车场</name>
+<lng>116.8654576</lng>
+<lat>23.6986031</lat>
+<intro>停车不易,优雅地停车更不易</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/tingche.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>jt</class>
+</latitude>-->
+<!-- 
+<latitude>
+<id>48</id>
+<name>洗手间</name>
+<lng>116.869006801993677</lng>
+<lat>23.698562571546955</lat>
+<intro>我可以帮你解决“急”事</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+<icon>img/wc.png</icon>
+<link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+<class>wc</class>
+</latitude>
+
+
+<latitude>
+<id>50</id>
+<name>玉兰包厢</name>
+<lng>116.865719206848809</lng>
+<lat>23.699529381721501</lat>
+<intro>人是铁，饭是钢，一顿不吃饿得慌</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+    <icon>img/chanting.png</icon>
+    <link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+    <class>cy</class>
+</latitude>
+
+<latitude>
+<id>51</id>
+<name>金贵包厢</name>
+<lng>116.865927317910206</lng>
+<lat>23.699444685359303</lat>
+<intro>人是铁，饭是钢，一顿不吃饿得慌</intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+    <icon>img/chanting.png</icon>
+    <link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+    <class>cy</class>
+</latitude>
+
+<latitude>
+<id>52</id>
+<name>碧波轩</name>
+<lng>116.866527452133781</lng>
+<lat>23.699493083280558</lat>
+<intro></intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+    <icon>img/chanting.png</icon>
+    <link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+    <class>cy</class>
+</latitude>
+ -->
+<!-- <latitude>
+<id>53</id>
+<name>品泉轩</name>
+<lng>116.86644033587551</lng>
+<lat>23.699350309412853</lat>
+<intro></intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+    <icon>img/chanting.png</icon>
+    <link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+    <class>cy</class>
+</latitude>
+
+<latitude>
+<id>54</id>
+<name>绿岛会展中心</name>
+<lng>116.864955291502199</lng>
+<lat>23.700242479688331</lat>
+<intro></intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+    <icon>img/chanting.png</icon>
+    <link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+    <class>cy</class>
+</latitude>
+
+<latitude>
+<id>55</id>
+<name>绿膳府</name>
+<lng>116.864647867532497</lng>
+<lat>23.700024558899685</lat>
+<intro></intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+    <icon>img/chanting.png</icon>
+    <link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+    <class>cy</class>
+</latitude> -->
+
+<latitude>
+<id>56</id>
+<name>小卖部</name>
+<lng>116.865303575619762</lng>
+<lat>23.699724917815288</lat>
+<intro></intro>
+<phone>020-123456789</phone>
+<img>img/test.jpg</img>
+    <icon>img/fuwutai.png</icon>
+    <link>http://192.168.1.98:8013/test/vtour/tour.html</link>
+    <class>sm</class>
+</latitude>
+
+</data>

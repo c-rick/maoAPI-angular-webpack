@@ -1,0 +1,57 @@
+﻿body {
+    font-family: Helvetica,Microsoft JhengHei;
+    font-size:1.5rem;
+}
+*{ padding:0; margin:0;}
+.content {
+    padding-top: 11%;
+    font-family: hyxmtj,Microsoft JhengHei;
+    text-shadow: 0.5px 1px 1px #e3eab7;
+}
+.datetitle {
+    width: 100%;
+    background: #fed700;
+    text-align: center;
+    line-height: 3rem;
+    -moz-border-radius: 1.7rem;
+    -webkit-border-radius: 1.7rem;
+    border-radius: 1.7rem;
+    border-bottom: 0.25rem solid #d1a802;
+    color: black;
+    text-shadow: 1px 1px 1px #d1a802;
+    position: relative;
+}
+.datetitle:before {
+    content: "";
+    position: absolute;
+    width: 62%;
+    border-left: 0.5rem solid #d1a802;
+    border-right: 0.5rem solid #d1a802;
+    height: 1.5rem;
+    bottom: -1.5rem;
+    left: 0;
+    margin-left: 17%;
+
+}
+.datebox{ border:1px solid #d1a802;margin: 0 auto; margin-top: 1.2rem; width:68%; -moz-border-radius:1.5rem; -webkit-border-radius:1.5rem; border-radius:1.5rem; padding:0 1rem;  font-size:0.7rem; background:white; text-shadow:none;}
+.datebox table{width:100%; border:none;}
+.datebox table td{ width: 2rem;height: 2rem;text-align: center;border: 1px solid transparent;}
+.datebox table td div{ font-size: small; }
+.datebox table td.selected{border:1px solid #deaa5d; color:#deaa5d; }
+.datebox table td.selected .subscribe{display:block;}
+.datebox table td .subscribe{display:none;}
+.datebox table tfoot td{ font-weight: bold;}
+.databox #up  ,.databox #down {
+    cursor: pointer;
+}
+.datetitle #down {
+    float: right;
+    margin-right:2rem;
+}
+.datetitle #up {
+    float: left;
+    margin-left:2rem;
+}
+.datetitle #up:hover ,.datetitle #down:hover {
+    color: green;
+}

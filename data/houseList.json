@@ -1,0 +1,73 @@
+{
+"status": "success",
+"house": [
+{
+"id": 0,
+"img": "./img/home1.jpg",
+"price": 520,
+"name": "绿岛酒店",
+"content": "含绿岛酒店门票一张含绿岛酒店门票一张含绿岛酒店门票一张含绿岛酒店门票一张含绿岛酒店门票一张",
+"other": "双早"
+},
+{
+"id": 1,
+"img": "./img/home3.jpg",
+"price": 220,
+"name": "绿岛酒店2",
+"content": "含绿岛酒店2门票一张含绿岛酒店门票一张含绿岛酒店门票一张含绿岛酒店门票一张含绿岛酒店门票一张",
+"other": "双早2"
+},
+{
+"id": 3,
+"img": "./img/home2.jpg",
+"price": 120,
+"name": "绿岛酒店3",
+"content": "含绿岛酒店3门票一张含绿岛酒店门票一张含绿岛酒店门票一张含绿岛酒店门票一张含绿岛酒店门票一张",
+"other": "双早3"
+}
+],
+"policys":[
+{
+	"id":1,
+	"content":"支持入住前退款"
+},
+{
+	"id":2,
+	"content":"支持入住前退款2"
+},
+{
+	"id":3,
+	"content":"支持入住前退款3"
+}		
+],
+"tel":123456,
+"comments":{
+	"data":[
+	{
+		"id":1,
+		"username":"大娃",
+		"userimg":"./img/home2.jpg",
+		"contentT":"房子很好很干净很舒服",
+		"contentI":["./img/home1.jpg","./img/home1.jpg","./img/home1.jpg","./img/home1.jpg"],
+		"housetype":"标准双人房",
+		"createtime":"2016-02-12 04:00"
+	},
+	{
+		"id":2,
+		"username":"二娃",
+		"userimg":"./img/home3.jpg",
+		"contentT":"房子很好很干净很舒服很干净，非常好，我下次一定还来这里",
+		"contentI":["./img/home2.jpg","./img/home2.jpg","./img/home2.jpg","./img/home2.jpg"],
+		"housetype":"豪华总统房",
+		"createtime":"2016-02-11 12:00"
+	}
+],
+	"link":"#"
+},
+"equipments":["空调","热水","wify","大床","电视"],
+"fancyboxs":[
+	{"url":"./img/home1.jpg","title":"房子1"},
+	{"url":"./img/home2.jpg","title":"房子2"},
+	{"url":"./img/home3.jpg","title":"房子3"}
+	]
+}
